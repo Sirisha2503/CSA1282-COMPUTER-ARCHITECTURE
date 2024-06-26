@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+    int hits = 24;
+    int misses = 5;
+    float hit_ratio;
+
+    // Calculate hit ratio
+    hit_ratio = (float)hits / (hits + misses);
+
+    // Print the hit ratio as a percentage
+    printf("Hit ratio: %.2f%%\n", hit_ratio * 100);
+
+    return 0;
+}

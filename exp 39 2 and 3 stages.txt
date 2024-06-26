@@ -1,0 +1,37 @@
+#include <stdio.h>
+int multiply_2_stage(int a, int b, int *clock_cycles) 
+{
+    (*clock_cycles)++; 
+    int result = a * b;
+    (*clock_cycles)++; 
+
+    return result;
+}
+int multiply_3_stage(int a, int b, int *clock_cycles) 
+{
+    (*clock_cycles)++; 
+    (*clock_cycles)++; 
+    int result = a * b;
+    (*clock_cycles)++; 
+    return result;
+}
+
+int main() 
+{
+    int operand1 = 12;
+    int operand2 = 4;
+    int result_2_stage, clock_cycles_2_stage = 0;
+    result_2_stage = multiply_2_stage(operand1, operand2, &clock_cycles_2_stage);
+    int result_3_stage, clock_cycles_3_stage = 0;
+    result_3_stage = multiply_3_stage(operand1, operand2, &clock_cycles_3_stage);
+    printf("Multiplication using 2-stage pipelining:\n");
+    printf("Result: %d\n", result_2_stage);
+    printf("Total clock cycles: %d\n", clock_cycles_2_stage);
+    printf("\n");
+
+    printf("Multiplication using 3-stage pipelining:\n");
+    printf("Result: %d\n", result_3_stage);
+    printf("Total clock cycles: %d\n", clock_cycles_3_stage);
+
+    return 0;
+}

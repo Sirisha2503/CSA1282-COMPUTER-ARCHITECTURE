@@ -1,0 +1,14 @@
+#include <stdio.h>
+int multiply(int a, int b) {
+    return a * b;
+}
+
+int main() {
+    int operand1 = 10;   
+    int operand2 = 20;   
+    int result;
+    result = multiply(operand1, operand2);
+    printf("Multiplication result of %d and %d is: %d\n", operand1, operand2, result);
+
+    return 0;
+}
