@@ -1,0 +1,24 @@
+def restoring_division(dividend, divisor):
+    dividend_bin = format(dividend, '08b')
+    divisor_bin = format(divisor, '08b')
+ n = len(dividend_bin) 
+    A = 0                 
+    Q = dividend         
+    M = divisor       
+    for i in range(n):
+        A = (A << 1) | (Q >> (n-1)) 
+        Q = (Q << 1) & ((1 << n) - 1)  
+        A = A - M  
+        if A < 0:
+            Q = Q & ~1 
+            A = A + M  
+        else:
+            Q = Q | 1  # Set the LSB of Q to 1
+    quotient = Q
+    remainder = A
+    return quotient, remainder
+dividend = 12
+divisor = 4
+quotient, remainder = restoring_division(dividend, divisor)
+print(f"Quotient: {quotient}")
+print(f"Remainder: {remainder}")
